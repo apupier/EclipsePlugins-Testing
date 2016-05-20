@@ -3,6 +3,7 @@ package org.redhat.demo.insidebundle.plugin.views;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.*;
+import org.redhat.demo.insidebundle.plugin.views.actions.MyFirstAction;
 import org.eclipse.jface.viewers.*;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.jface.action.*;
@@ -120,12 +121,7 @@ public class SampleView extends ViewPart {
 	}
 
 	private void makeActions() {
-		action1 = new Action() {
-			@Override
-			public void run() {
-				showMessage("Action 1 executed");
-			}
-		};
+		action1 = new MyFirstAction();
 		action1.setText("Action 1");
 		action1.setToolTipText("Action 1 tooltip");
 		action1.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
@@ -154,7 +150,8 @@ public class SampleView extends ViewPart {
 	private void hookDoubleClickAction() {
 		viewer.addDoubleClickListener(event -> doubleClickAction.run());
 	}
-	private void showMessage(String message) {
+	
+	public void showMessage(String message) {
 		MessageDialog.openInformation(
 			viewer.getControl().getShell(),
 			"Sample View",
