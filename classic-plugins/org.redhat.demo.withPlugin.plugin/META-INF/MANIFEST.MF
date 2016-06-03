@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Plugin
+Bundle-SymbolicName: org.redhat.demo.withPlugin.plugin;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Require-Bundle: org.junit;resolution:=optional,
+ org.eclipse.core.runtime,
+ org.eclipse.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.redhat.demo.insidebundle.plugin.views.actions;x-friends:="org.redhat.demo.withPlugin.plugin.test"
